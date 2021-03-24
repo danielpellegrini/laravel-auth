@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PrivateController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/guitars', GuitarController::class);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/guitars', GuitarController::class);
+Route::get('/private', 'PrivateController@index')->middleware('auth');
+
+Route::get('/public', 'PublicController@index');

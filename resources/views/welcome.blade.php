@@ -86,13 +86,9 @@
 
                 <div class="links">
                     <a href="/guitars">Index</a>
-                    <a href="/guitars">Laracasts</a>
-                    <a href="/guitars">News</a>
-                    <a href="/guitars">Blog</a>
-                    <a href="/guitars">Nova</a>
-                    <a href="/guitars">Forge</a>
-                    <a href="/guitars">Vapor</a>
-                    <a href="/guitars">GitHub</a>
+                    <a href="/private">Private</a>
+                    <a href="/public">Public</a>
+
                 </div>
             </div>
         </div>
