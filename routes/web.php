@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/guitars', GuitarController::class)->middleware('auth');
+// Route::resource('/guitars', GuitarController::class)->middleware('auth');
 
 Auth::routes();
 
@@ -31,13 +31,17 @@ Route::get('/private', 'PrivateController@index')->middleware('auth');
 Route::get('/public', 'PublicController@index');
 
 
-Route::get('/guitars', 'DashboardController@index')->name('guitars.index');
 
-Route::get('/guitars/{guitar}', 'DashboardController@show')->name('guitars.show');
+
+Route::get('/guitars', 'DashboardController@index')->name('public.guitars.index');
+
+Route::get('/guitars/{guitar}', 'DashboardController@show')->name('public.guitars.show');
 
 Route::prefix('admin')
-->namespace('Admin')
-->middleware('auth')
-->group(function () {
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function () {
+
+        Route::resource('/guitars', GuitarController::class);
 
 });

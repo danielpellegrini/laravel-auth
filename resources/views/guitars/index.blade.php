@@ -23,14 +23,14 @@
     @foreach ($guitars as $guitar)
     <tr>
       <th scope="row">{{ $guitar->id }}</th>
-      <td><a href="{{ route('guitars.show', compact('guitar')) }}">{{ $guitar->brand }}</a></td>
+      <td><a href="{{ route('public.guitars.show', compact('guitar')) }}">{{ $guitar->brand }}</a></td>
       <td>{{ $guitar->model }}</td>
       <td>{{ $guitar->type }}</td>
       <td>{{ $guitar->strings }}</td>
       <td class="image"><img src="{{ $guitar->url }}" alt="guitar!"></td>
       <td>
             {{-- VIEW --}}
-          <a href="{{ route('guitars.show', compact('guitar')) }}"><i class="fas fa-eye"></i></a>
+          <a href="{{ route('public.guitars.show', compact('guitar')) }}"><i class="fas fa-eye"></i></a>
 
             {{-- EDIT --}}
           {{-- <a href="{{ route('guitars.edit', compact('guitar')) }}"><i class="fas fa-edit"></i></a> --}}
