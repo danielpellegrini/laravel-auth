@@ -24,9 +24,9 @@ class GuitarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Guitar $guitars)
     {
-        //
+        return view('guitars.create', compact('guitars'));
     }
 
     /**
@@ -37,18 +37,27 @@ class GuitarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm($request);
+
+        $data = $request->all();
+
+        $guitar = new Guitar();
+        $guitar->fill($data);
+        $guitar->save();
+        $guitarOrdered = Guitar::orderBy('id', 'desc')->first();
+
+        return redirect()->route('guitars.index', $guitarOrdered);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $guitar
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Guitar $guitar)
     {
-        //
+        return view('guitars.show', compact('guitar'));
     }
 
     /**
