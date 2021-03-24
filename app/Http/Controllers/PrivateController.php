@@ -14,7 +14,7 @@ class PrivateController extends Controller
 
         $name = $user->name;
 
-        return view('private', compact('name'));
+        return view('home', compact('name'));
 
 
     }

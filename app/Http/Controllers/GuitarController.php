@@ -6,6 +6,7 @@ use App\Guitar;
 use Illuminate\Http\Request;
 
 
+
 class GuitarController extends Controller
 {
     /**

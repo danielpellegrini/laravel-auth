@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PrivateController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Routing\Router;
@@ -19,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/guitars', GuitarController::class);
+Route::resource('/guitars', GuitarController::class)->middleware('auth');
 
 Auth::routes();
 
@@ -28,3 +29,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/private', 'PrivateController@index')->middleware('auth');
 
 Route::get('/public', 'PublicController@index');
+
+
+Route::get('/guitars', 'DashboardController@index')->name('guitars.index');
+
+Route::get('/guitars/{guitar}', 'DashboardController@show')->name('guitars.show');
+
+Route::prefix('admin')
+->namespace('Admin')
+->middleware('auth')
+->group(function () {
+
+});

@@ -53,10 +53,12 @@
     @endforeach
   </tbody>
 </table>
+    @if (Auth::check())
 
-<div class="mb-3">
-  <a href="{{ route('guitars.create', compact('guitar')) }}" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
-</div>
+        <div class="mb-3">
+            <a href="{{ route('guitars.create', compact('guitar')) }}" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
+        </div>
+    @endif
     </div>
   </div>
 </div>
