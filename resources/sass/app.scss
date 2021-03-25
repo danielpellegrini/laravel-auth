@@ -9,3 +9,18 @@
 
 // Fontawesome
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+.container {
+
+  tbody {
+    tr {
+      td {
+        img {
+          width: 10rem;
+          height: auto;
+        }
+      }
+    }
+  }
+
+}

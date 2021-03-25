@@ -33,7 +33,9 @@
           <a href="{{ route('public.guitars.show', compact('guitar')) }}"><i class="fas fa-eye"></i></a>
 
             {{-- EDIT --}}
-          {{-- <a href="{{ route('guitars.edit', compact('guitar')) }}"><i class="fas fa-edit"></i></a> --}}
+            @auth
+                <a href="{{ route('guitars.edit', compact('guitar')) }}"><i class="fas fa-edit"></i></a>
+            @endauth
 
             {{-- DESTROY --}}
           {{-- <form action="{{ route('beers.destroy', compact('beer')) }}" method="post">
@@ -53,12 +55,11 @@
     @endforeach
   </tbody>
 </table>
-    @if (Auth::check())
-
+    @auth
         <div class="mb-3">
             <a href="{{ route('guitars.create', compact('guitar')) }}" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
         </div>
-    @endif
+    @endauth
     </div>
   </div>
 </div>

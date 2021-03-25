@@ -10007,3 +10007,7 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.container tbody tr td img {
+  width: 10rem;
+  height: auto;
+}

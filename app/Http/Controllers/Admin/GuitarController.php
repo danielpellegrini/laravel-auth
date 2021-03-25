@@ -45,10 +45,10 @@ class GuitarController extends Controller
 
         $guitar = new Guitar();
         $guitar->fill($data);
-        $guitar->save();
         $guitarOrdered = Guitar::orderBy('id', 'desc')->first();
 
-        return redirect()->route('guitars.index', $guitarOrdered);
+        $guitar->save();
+        return redirect()->route('guitars.index', compact('guitar'));
     }
 
     /**
@@ -65,36 +65,47 @@ class GuitarController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Guitar  $guitar
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Guitar $guitar)
     {
-        //
+        // dd($guitar);
+        return view('guitars.edit', compact('guitar'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $guitar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Guitar $guitar)
     {
-        //
+        $data = $request->all();
+        // validation
+        $guitar->update($data); // similar to $guitar->fill in store
+
+        return redirect()->route('guitars.show', compact('guitar'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $guitar
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Guitar $guitar)
     {
-        //
+        $guitar->delete();
+
+        return redirect()->route('guitars.index');
     }
+
+
+    /**
+     * Function to validate form fields. */
 
     private function validateForm(Request $request) {
 
