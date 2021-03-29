@@ -3,64 +3,70 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="">
-        <h1 class="text-center">Guitars store</h1>
-      </div>
-      <table class="table table-hover">
+  <div class="col-md-8">
+    <div class="">
+    <h1 class="text-center">Guitars store</h1>
+    </div>
+    <table class="table table-hover">
   <thead>
-    <tr>
-      <th scope="col">id#</th>
-      <th scope="col">Brand</th>
-      <th scope="col">Model</th>
-      <th scope="col">Type</th>
-      <th scope="col">Strings</th>
-      <th scope="col">Image</th>
-      <th scope="col">Action</th>
-    </tr>
+  <tr class="text-center">
+    <th scope="col">id#</th>
+    <th scope="col">Brand</th>
+    <th scope="col">Model</th>
+    <th scope="col">Type</th>
+    <th scope="col">Strings</th>
+    <th scope="col">Image</th>
+    <th scope="col">Price</th>
+    <th scope="col">Action</th>
+  </tr>
   </thead>
   <tbody>
-    @foreach ($guitars as $guitar)
-    <tr>
-      <th scope="row">{{ $guitar->id }}</th>
-      <td><a href="{{ route('public.guitars.show', compact('guitar')) }}">{{ $guitar->brand }}</a></td>
-      <td>{{ $guitar->model }}</td>
-      <td>{{ $guitar->type }}</td>
-      <td>{{ $guitar->strings }}</td>
-      <td class="image"><img src="{{ $guitar->url }}" alt="guitar!"></td>
-      <td>
-            {{-- VIEW --}}
-          <a href="{{ route('public.guitars.show', compact('guitar')) }}"><i class="fas fa-eye"></i></a>
+  @foreach ($guitars as $guitar)
+  <tr>
+    <th scope="row">{{ $guitar->id }}</th>
+    <td><a href="{{ route('public.guitars.show', compact('guitar')) }}">{{ $guitar->brand }}</a></td>
+    <td>{{ $guitar->model }}</td>
+    <td>{{ $guitar->type }}</td>
+    <td>{{ $guitar->strings }}</td>
+    <td class="image"><img src="{{ $guitar->url }}" alt="guitar!"></td>
+    <td>{{ $guitar->price }}
+        @if (!empty($guitar->price))
+        €
+        @endif
+    </td>
+    <td>
+      {{-- VIEW --}}
+      <a href="{{ route('public.guitars.show', compact('guitar')) }}"><i class="fas fa-eye"></i></a>
 
-            {{-- EDIT --}}
-            @auth
-                <a href="{{ route('guitars.edit', compact('guitar')) }}"><i class="fas fa-edit"></i></a>
-            @endauth
+      {{-- EDIT --}}
+      @auth
+        <a href="{{ route('guitars.edit', compact('guitar')) }}"><i class="fas fa-edit"></i></a>
+      @endauth
 
-            {{-- DESTROY --}}
-          {{-- <form action="{{ route('beers.destroy', compact('beer')) }}" method="post">
-            @csrf
-            @method('DELETE')
+      {{-- DESTROY --}}
+      {{-- <form action="{{ route('beers.destroy', compact('beer')) }}" method="post">
+      @csrf
+      @method('DELETE')
 
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$beer->id }}" >
-                <i class="fas fa-trash-alt"></i>
-            </button>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{$beer->id }}" >
+        <i class="fas fa-trash-alt"></i>
+      </button>
 
-            @include('beers.modal',['beer'=> $beer->id])
-          </form> --}}
+      @include('beers.modal',['beer'=> $beer->id])
+      </form> --}}
 
-      </td>
+    </td>
 
-    </tr>
-    @endforeach
+  </tr>
+  @endforeach
   </tbody>
 </table>
-    @auth
-        <div class="mb-3">
-            <a href="{{ route('guitars.create', compact('guitar')) }}" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
-        </div>
-    @endauth
+  @auth
+    <div class="mb-3">
+      <a href="{{ route('guitars.create', compact('guitar')) }}" class="btn btn-success"><i class="fas fa-plus"> Add</i></a>
     </div>
+  @endauth
+  </div>
   </div>
 </div>
 @endsection

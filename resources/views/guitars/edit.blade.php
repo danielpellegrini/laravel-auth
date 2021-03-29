@@ -10,62 +10,72 @@
         @method('PUT')
 
         <div class="mb-3">
-        <label for="validationCustomUsername" class="form-label">Guitar brand</label>
-        <input type="text" name="brand" class="form-control {{ $errors->has('brand') ? 'is-invalid' : '' }}"
-            id="validationCustomUsername" placeholder="Brand name" value="{{$guitar->brand}}">
-        {{-- VALIDATION: FIELD **REQUIRED** --}}
-        <div class="invalid-feedback">
-            {{ $errors->first('brand') }}
-        </div>
-        </div>
-
-        <div class="mb-3">
-        <label for="validationCustomUsername" class="form-label">Guitar model</label>
-        <input type="text" name="model" class="form-control {{ $errors->has('model') ? 'is-invalid' : '' }}"
-            id="validationCustomUsername" placeholder="Model name" value="{{$guitar->model}}">
-        {{-- VALIDATION: FIELD **REQUIRED** --}}
-        <div class="invalid-feedback">
-            {{ $errors->first('model') }}
-        </div>
+            <label for="validationCustomUsername" class="form-label">Guitar brand</label>
+            <input type="text" name="brand" class="form-control {{ $errors->has('brand') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="Brand name" value="{{$guitar->brand}}">
+            {{-- VALIDATION: FIELD **REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('brand') }}
+            </div>
         </div>
 
         <div class="mb-3">
-        <label for="validationCustomUsername" class="form-label">Guitar type</label>
-        <input type="text" name="type" class="form-control {{ $errors->has('type') ? 'is-invalid' : '' }}"
-            id="validationCustomUsername" placeholder="Type" value="{{$guitar->type}}">
-        {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
-        <div class="invalid-feedback">
-            {{ $errors->first('type') }}
-        </div>
-        </div>
-
-        <div class="mb-3">
-        <label for="validationCustomUsername" class="form-label">Strings</label>
-        <input type="text" name="strings" class="form-control {{ $errors->has('strings') ? 'is-invalid' : '' }}"
-            id="validationCustomUsername" placeholder="Strings" value="{{$guitar->strings}}">
-        {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
-        <div class="invalid-feedback">
-            {{ $errors->first('strings') }}
-        </div>
+            <label for="validationCustomUsername" class="form-label">Guitar model</label>
+            <input type="text" name="model" class="form-control {{ $errors->has('model') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="Model name" value="{{$guitar->model}}">
+            {{-- VALIDATION: FIELD **REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('model') }}
+            </div>
         </div>
 
         <div class="mb-3">
-        <label for="validationCustomUsername" class="form-label">Guitar image</label>
-        <input type="text" name="url" class="form-control {{ $errors->has('url') ? 'is-invalid' : '' }}"
-            id="validationCustomUsername" placeholder="URL" value="{{$guitar->url}}">
-        {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
-        <div class="invalid-feedback">
-            {{ $errors->first('url') }}
+            <label for="validationCustomUsername" class="form-label">Guitar type</label>
+            <input type="text" name="type" class="form-control {{ $errors->has('type') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="Type" value="{{$guitar->type}}">
+            {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('type') }}
+            </div>
         </div>
+
+        <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Strings</label>
+            <input type="text" name="strings" class="form-control {{ $errors->has('strings') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="Strings" value="{{$guitar->strings}}">
+            {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('strings') }}
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Guitar image</label>
+            <input type="text" name="url" class="form-control {{ $errors->has('url') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="URL" value="{{$guitar->url}}">
+            {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('url') }}
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="validationCustomUsername" class="form-label">Guitar price</label>
+            <input type="text" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
+                id="validationCustomUsername" placeholder="Price" value="{{$guitar->price}}">
+            {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
+            <div class="invalid-feedback">
+                {{ $errors->first('price') }}
+            </div>
         </div>
 
 
 
 
         <div class="mb-3">
-        <a href="{{ route('guitars.index', compact('guitar')) }}" class="btn btn-danger"><i
-            class="fas fa-undo">Undo</i></a>
-        <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{{ route('guitars.index', compact('guitar')) }}" class="btn btn-danger"><i
+                class="fas fa-undo">Undo</i></a>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 

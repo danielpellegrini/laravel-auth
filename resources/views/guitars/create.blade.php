@@ -59,6 +59,16 @@
         </div>
         </div>
 
+        <div class="mb-3">
+        <label for="validationCustomUsername" class="form-label">Guitar price</label>
+        <input type="text" name="price" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
+            id="validationCustomUsername" placeholder="Price">
+        {{-- VALIDATION: FIELD ** NOT REQUIRED** --}}
+        <div class="invalid-feedback">
+            {{ $errors->first('price') }}
+        </div>
+        </div>
+
 
 
 

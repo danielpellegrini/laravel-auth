@@ -13,5 +13,6 @@ class Guitar extends Model
         'type',
         'strings',
         'url',
+        'price',
     ];
 }

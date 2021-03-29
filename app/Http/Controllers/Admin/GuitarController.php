@@ -114,7 +114,8 @@ class GuitarController extends Controller
             "model" => 'required|max:60',
             "type" => 'nullable|max:60',
             "strings" => 'nullable|numeric|between:6,26',
-            "url" => 'nullable|between:7,2048'
+            "url" => 'nullable|between:7,2048',
+            "price" => 'nullable|between:2,8'
         ]);
 
     }
